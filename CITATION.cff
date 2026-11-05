@@ -4,6 +4,14 @@ title: "Scene-adaptive ensemble object detection for UAV imagery with the SCAC c
 version: 1.0.0
 date-released: 2026-11-05
 license: MIT
+doi: 10.5281/zenodo.23990448
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23990448
+    description: "Version 1.0.0 archived on Zenodo"
+  - type: doi
+    value: 10.5281/zenodo.23990447
+    description: "Concept DOI (all versions)"
 repository-code: "https://github.com/iotvl/scene-adaptive-ensemble-detection"
 authors:
   - family-names: Kromkach

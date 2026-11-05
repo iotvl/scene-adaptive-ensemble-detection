@@ -1,5 +1,8 @@
 # Scene-adaptive ensemble object detection for UAV imagery (SCAC)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23990448.svg)](https://doi.org/10.5281/zenodo.23990448)
+[![tests](https://github.com/iotvl/scene-adaptive-ensemble-detection/actions/workflows/tests.yml/badge.svg)](https://github.com/iotvl/scene-adaptive-ensemble-detection/actions/workflows/tests.yml)
+
 Code accompanying the PhD thesis **«Оптимізація ансамблевих методів розпізнавання об'єктів на основі нейронних мереж для систем кібербезпеки»** (Vladyslav Kromkach, Lviv Polytechnic National University) and the two articles listed under [Citation](#citation).
 
 The thesis treats a detector ensemble inside a security video-monitoring pipeline as an optimisation problem with three decision variables — **pool composition**, **prediction fusion** (NMS / Soft-NMS / NMW / WBF) and **compute allocation** between a cheap and an expensive configuration — under constraints on compute budget, robustness to deliberate interference and trustworthiness of evaluation. This repository contains the core library that implements the studied methods:
@@ -92,6 +95,8 @@ Articles:
 
 1. Руда Х. С., Кромкач В. О. Сценозалежне ансамблеве виявлення об'єктів на аерознімках безпілотників: межі корисності маршрутизації кадрів за сценами. *Науковий вісник НЛТУ України*. 2026. Т. 36, № 4. С. 166–177. https://doi.org/10.36930/40360419
 2. Руда Х. С., Кромкач В. О. Адаптивний каскад за складністю сцени для виявлення об'єктів на аерознімках безпілотників: коли вибіркова ескалація обчислень виправдана. *Кібербезпека: освіта, наука, техніка*. 2026. № 2(34). С. 463–502. https://doi.org/10.28925/2663-4023.2026.34.1340
+
+Software: Кромкач В. О. *Scene-adaptive ensemble object detection for UAV imagery with the SCAC compute cascade* (v1.0.0). Zenodo, 2026. https://doi.org/10.5281/zenodo.23990448
 
 Machine-readable metadata is in `CITATION.cff`.
 
