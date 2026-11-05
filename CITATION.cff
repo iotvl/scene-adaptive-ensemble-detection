@@ -1,0 +1,50 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the thesis and the articles listed under references."
+title: "Scene-adaptive ensemble object detection for UAV imagery with the SCAC compute cascade"
+version: 1.0.0
+date-released: 2026-11-05
+license: MIT
+repository-code: "https://github.com/iotvl/scene-adaptive-ensemble-detection"
+authors:
+  - family-names: Kromkach
+    given-names: Vladyslav
+    affiliation: "Lviv Polytechnic National University, Department of Computerized Automatic Systems"
+preferred-citation:
+  type: thesis
+  thesis-type: "PhD thesis"
+  title: "Оптимізація ансамблевих методів розпізнавання об'єктів на основі нейронних мереж для систем кібербезпеки"
+  authors:
+    - family-names: Kromkach
+      given-names: Vladyslav
+  institution:
+    name: "Lviv Polytechnic National University"
+  year: 2027
+references:
+  - type: article
+    title: "Сценозалежне ансамблеве виявлення об'єктів на аерознімках безпілотників: межі корисності маршрутизації кадрів за сценами"
+    authors:
+      - family-names: Ruda
+        given-names: Khrystyna
+      - family-names: Kromkach
+        given-names: Vladyslav
+    journal: "Науковий вісник НЛТУ України"
+    year: 2026
+    volume: 36
+    issue: 4
+    start: 166
+    end: 177
+    doi: 10.36930/40360419
+  - type: article
+    title: "Адаптивний каскад за складністю сцени для виявлення об'єктів на аерознімках безпілотників: коли вибіркова ескалація обчислень виправдана"
+    authors:
+      - family-names: Ruda
+        given-names: Khrystyna
+      - family-names: Kromkach
+        given-names: Vladyslav
+    journal: "Кібербезпека: освіта, наука, техніка"
+    year: 2026
+    volume: 2
+    issue: 34
+    start: 463
+    end: 502
+    doi: 10.28925/2663-4023.2026.34.1340

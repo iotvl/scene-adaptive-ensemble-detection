@@ -1,0 +1,22 @@
+# Experiment 3.6 — robustness of detector ensembles to a compromised pool member.
+# Single SEED; derived seeds are fixed offsets (see exp36/runner/grid.py).
+seed: 42
+n_bootstrap: 1000
+combo_cap: 21            # max poisoned-set combinations per (pool, k); seeded subsample above this
+# Thresholds. EVAL and DEPLOY never mix (the NLTU protocol defect).
+eval_threshold: 0.001    # mAP is computed on the full PR curve
+deploy_threshold: 0.25   # target recall / ASR / FPPI are computed at the operating point
+match_iou: 0.5           # GT matching IoU for recall/ASR/FPPI and for mAP@50
+fusion:
+  iou_thr: 0.55
+  skip_box_thr: 0.01
+  soft_nms_sigma: 0.5
+  soft_nms_min_score: 0.001
+attacks:
+  suppress_rho: [0.1, 0.5, 1.0]
+  inject_n_per_frame: [5, 15, 30]
+  inject_conf: [0.6, 0.9]
+  inflate_factor: 1.5
+targets:
+  visdrone: {target_class: 0, decoy_class: 3}   # pedestrian / car (8-class layout)
+  uavdt:    {target_class: 0, decoy_class: 1}   # car / truck   (3-class UAVDT space)

@@ -1,0 +1,43 @@
+{
+ "folds": {
+  "0": {
+   "p": 0.25,
+   "tau": 30.0,
+   "cal_map": 0.6714,
+   "ref": {
+    "p": 0.25,
+    "tau": 30.0,
+    "cal_map": 0.6714
+   },
+   "match": true
+  },
+  "1": {
+   "p": 0.15,
+   "tau": 43.8,
+   "cal_map": 0.6325,
+   "ref": {
+    "p": 0.15,
+    "tau": 43.799999999999955,
+    "cal_map": 0.6325
+   },
+   "match": true
+  }
+ },
+ "realized": {
+  "overall": 0.211,
+  "day": 0.219,
+  "night": 0.088,
+  "fog": 0.451
+ },
+ "all_match": true,
+ "_protocol": {
+  "seed": 42,
+  "eval_confidence_threshold": 0.001,
+  "eval_img_size": 1280,
+  "iou_threshold": 0.55,
+  "skip_box_threshold": 0.01,
+  "stride": 30,
+  "reference": "experiments/uavdt/scac_crossfit_bootstrap.json",
+  "library": "scac 0.1.0"
+ }
+}

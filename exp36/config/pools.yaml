@@ -1,0 +1,17 @@
+# Pools are lists of finetuned_models keys from configs/default.yaml.
+# Prediction caches: experiments/ensembles/pred_cache (VisDrone), experiments/uavdt/pred_cache (UAVDT).
+pools:
+  hetero3: [yolov9e_vd, yolov26x_vd, yolov10x_vd]
+  full7:   [yolov8m_vd, yolov8l_vd, yolov8x_vd, yolov9e_vd, yolov10x_vd, yolov11x_vd, yolov26x_vd]
+datasets:
+  visdrone:
+    cache_dir: experiments/ensembles/pred_cache
+    scenes_dir: data/scenes
+    scenes: {day: val, night: test, rain: val}
+    num_classes: 8
+  uavdt:
+    cache_dir: experiments/uavdt/pred_cache
+    data_root: data/UAVDT
+    scenes: {day: all, night: all, fog: all}
+    stride: 30
+    num_classes: 3

@@ -1,0 +1,316 @@
+{
+  "tier1": "yolov10x_vd",
+  "members": [
+    "yolov9e_vd",
+    "yolov26x_vd",
+    "yolov10x_vd"
+  ],
+  "best_pair": [
+    "yolov9e_vd",
+    "yolov10x_vd"
+  ],
+  "folds": {
+    "0": {
+      "p": 0.25,
+      "tau": 30.0,
+      "cal_map": 0.6714
+    },
+    "1": {
+      "p": 0.15,
+      "tau": 43.799999999999955,
+      "cal_map": 0.6325
+    }
+  },
+  "realized_escalation": {
+    "overall": 0.211,
+    "day": 0.219,
+    "night": 0.088,
+    "fog": 0.451
+  },
+  "cost": {
+    "cascade_avg_gflops": 1023.8,
+    "trio_gflops": 2289.9,
+    "pair_gflops": 1455.3,
+    "single_gflops": 684.4
+  },
+  "full_sample_mAP50": {
+    "single_t1": {
+      "day": 0.6096,
+      "night": 0.6194,
+      "fog": 0.5581,
+      "avg": 0.5957,
+      "avg_weighted": 0.6058
+    },
+    "trio": {
+      "day": 0.6462,
+      "night": 0.6086,
+      "fog": 0.5794,
+      "avg": 0.6114,
+      "avg_weighted": 0.6271
+    },
+    "pair_best": {
+      "day": 0.6541,
+      "night": 0.6101,
+      "fog": 0.5505,
+      "avg": 0.6049,
+      "avg_weighted": 0.6285
+    },
+    "cascade_crossfit": {
+      "day": 0.647,
+      "night": 0.6283,
+      "fog": 0.5789,
+      "avg": 0.6181,
+      "avg_weighted": 0.633
+    },
+    "stoch_0": {
+      "day": 0.614,
+      "night": 0.6177,
+      "fog": 0.5615,
+      "avg": 0.5977,
+      "avg_weighted": 0.6083
+    },
+    "stoch_1": {
+      "day": 0.6115,
+      "night": 0.6125,
+      "fog": 0.5562,
+      "avg": 0.5934,
+      "avg_weighted": 0.6047
+    },
+    "stoch_2": {
+      "day": 0.6121,
+      "night": 0.622,
+      "fog": 0.5639,
+      "avg": 0.5993,
+      "avg_weighted": 0.6087
+    },
+    "strat_0": {
+      "day": 0.611,
+      "night": 0.6174,
+      "fog": 0.57,
+      "avg": 0.5995,
+      "avg_weighted": 0.6076
+    },
+    "strat_1": {
+      "day": 0.6149,
+      "night": 0.6156,
+      "fog": 0.5531,
+      "avg": 0.5945,
+      "avg_weighted": 0.6072
+    },
+    "strat_2": {
+      "day": 0.6132,
+      "night": 0.6197,
+      "fog": 0.579,
+      "avg": 0.604,
+      "avg_weighted": 0.6107
+    }
+  },
+  "deltas_cascade": {
+    "vs_trio": {
+      "day": {
+        "mean": 0.0024,
+        "std": 0.0098,
+        "ci_lo": -0.0169,
+        "ci_hi": 0.0205,
+        "p_le_zero": 0.395
+      },
+      "night": {
+        "mean": 0.0107,
+        "std": 0.0191,
+        "ci_lo": -0.0375,
+        "ci_hi": 0.0388,
+        "p_le_zero": 0.222
+      },
+      "fog": {
+        "mean": -0.002,
+        "std": 0.0178,
+        "ci_lo": -0.0381,
+        "ci_hi": 0.0253,
+        "p_le_zero": 0.532
+      },
+      "avg": {
+        "mean": 0.0037,
+        "std": 0.0095,
+        "ci_lo": -0.0167,
+        "ci_hi": 0.0197,
+        "p_le_zero": 0.294
+      },
+      "avg_weighted": {
+        "mean": 0.0042,
+        "std": 0.0083,
+        "ci_lo": -0.0143,
+        "ci_hi": 0.0199,
+        "p_le_zero": 0.287
+      }
+    },
+    "vs_pair_best": {
+      "day": {
+        "mean": -0.0034,
+        "std": 0.0081,
+        "ci_lo": -0.0197,
+        "ci_hi": 0.0115,
+        "p_le_zero": 0.649
+      },
+      "night": {
+        "mean": 0.0125,
+        "std": 0.0175,
+        "ci_lo": -0.0315,
+        "ci_hi": 0.0418,
+        "p_le_zero": 0.2
+      },
+      "fog": {
+        "mean": 0.0148,
+        "std": 0.0152,
+        "ci_lo": -0.0234,
+        "ci_hi": 0.0354,
+        "p_le_zero": 0.116
+      },
+      "avg": {
+        "mean": 0.008,
+        "std": 0.0083,
+        "ci_lo": -0.0102,
+        "ci_hi": 0.0219,
+        "p_le_zero": 0.153
+      },
+      "avg_weighted": {
+        "mean": 0.0034,
+        "std": 0.0072,
+        "ci_lo": -0.0117,
+        "ci_hi": 0.0163,
+        "p_le_zero": 0.293
+      }
+    },
+    "vs_single": {
+      "day": {
+        "mean": 0.0361,
+        "std": 0.0167,
+        "ci_lo": 0.008,
+        "ci_hi": 0.0689,
+        "p_le_zero": 0.001
+      },
+      "night": {
+        "mean": 0.0091,
+        "std": 0.0103,
+        "ci_lo": -0.0061,
+        "ci_hi": 0.0316,
+        "p_le_zero": 0.202
+      },
+      "fog": {
+        "mean": 0.0062,
+        "std": 0.0141,
+        "ci_lo": -0.0207,
+        "ci_hi": 0.0293,
+        "p_le_zero": 0.4
+      },
+      "avg": {
+        "mean": 0.0171,
+        "std": 0.0079,
+        "ci_lo": 0.0021,
+        "ci_hi": 0.0318,
+        "p_le_zero": 0.012
+      },
+      "avg_weighted": {
+        "mean": 0.0247,
+        "std": 0.0104,
+        "ci_lo": 0.0063,
+        "ci_hi": 0.0445,
+        "p_le_zero": 0.001
+      }
+    },
+    "vs_stochastic": {
+      "day": {
+        "mean": 0.0335,
+        "std": 0.0151,
+        "ci_lo": 0.007,
+        "ci_hi": 0.0629,
+        "p_le_zero": 0.001
+      },
+      "night": {
+        "mean": 0.0109,
+        "std": 0.0109,
+        "ci_lo": -0.0082,
+        "ci_hi": 0.0332,
+        "p_le_zero": 0.178
+      },
+      "fog": {
+        "mean": 0.0063,
+        "std": 0.0122,
+        "ci_lo": -0.0162,
+        "ci_hi": 0.0256,
+        "p_le_zero": 0.339
+      },
+      "avg": {
+        "mean": 0.0169,
+        "std": 0.0073,
+        "ci_lo": 0.0023,
+        "ci_hi": 0.0308,
+        "p_le_zero": 0.01
+      },
+      "avg_weighted": {
+        "mean": 0.0237,
+        "std": 0.0095,
+        "ci_lo": 0.0064,
+        "ci_hi": 0.0421,
+        "p_le_zero": 0.001
+      }
+    },
+    "vs_stochastic_stratified": {
+      "day": {
+        "mean": 0.0327,
+        "std": 0.0141,
+        "ci_lo": 0.0088,
+        "ci_hi": 0.061,
+        "p_le_zero": 0.001
+      },
+      "night": {
+        "mean": 0.0109,
+        "std": 0.0104,
+        "ci_lo": -0.0042,
+        "ci_hi": 0.0317,
+        "p_le_zero": 0.17
+      },
+      "fog": {
+        "mean": 0.0039,
+        "std": 0.0126,
+        "ci_lo": -0.0236,
+        "ci_hi": 0.0222,
+        "p_le_zero": 0.347
+      },
+      "avg": {
+        "mean": 0.0158,
+        "std": 0.007,
+        "ci_lo": 0.0014,
+        "ci_hi": 0.0287,
+        "p_le_zero": 0.014
+      },
+      "avg_weighted": {
+        "mean": 0.0229,
+        "std": 0.0088,
+        "ci_lo": 0.0073,
+        "ci_hi": 0.0403,
+        "p_le_zero": 0.001
+      }
+    }
+  },
+  "n_frames": {
+    "day": 810,
+    "night": 387,
+    "fog": 175
+  },
+  "_protocol": {
+    "seed": 42,
+    "eval_confidence_threshold": 0.001,
+    "eval_img_size": 1280,
+    "iou_threshold": 0.55,
+    "skip_box_threshold": 0.01,
+    "device": "mps",
+    "stride": 30,
+    "n_boot": 1000,
+    "deploy_conf_for_signal": 0.25,
+    "p_grid_step": 0.05,
+    "crossfit": "2-fold by sequence, stratified by scene",
+    "iou_thresholds": [
+      0.5
+    ]
+  }
+}

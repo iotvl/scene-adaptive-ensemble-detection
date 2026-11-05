@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Environment
+.env
+
+# Data, weights and run outputs are never committed (see README: data and models)
+data/
+weights/
+runs/
+*.pt
+*.pth
+experiments/
+wandb/
+
+# Caches / coverage
+.cache/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+htmlcov/
+.coverage*

@@ -1,0 +1,24 @@
+{
+  "_comment": "model_class_id -> coco_category_id (= dataset class index + 1; pycocotools reserves 0). VisDrone caches are stored in the project's 8-class layout (src/constants.py VISDRONE_CLASSES; tricycle/awning-tricycle dropped, OLD10_TO_NEW8 applied at cache time). UAVDT: 8-class cache -> 3-class UAVDT space (car+van -> car, truck, bus; other classes dropped), as in scripts/08.",
+  "visdrone": {
+    "classes": ["pedestrian", "people", "bicycle", "car", "van", "truck", "bus", "motor"],
+    "yolov8m_vd":  {"0": 1, "1": 2, "2": 3, "3": 4, "4": 5, "5": 6, "6": 7, "7": 8},
+    "yolov8l_vd":  {"0": 1, "1": 2, "2": 3, "3": 4, "4": 5, "5": 6, "6": 7, "7": 8},
+    "yolov8x_vd":  {"0": 1, "1": 2, "2": 3, "3": 4, "4": 5, "5": 6, "6": 7, "7": 8},
+    "yolov9e_vd":  {"0": 1, "1": 2, "2": 3, "3": 4, "4": 5, "5": 6, "6": 7, "7": 8},
+    "yolov10x_vd": {"0": 1, "1": 2, "2": 3, "3": 4, "4": 5, "5": 6, "6": 7, "7": 8},
+    "yolov11x_vd": {"0": 1, "1": 2, "2": 3, "3": 4, "4": 5, "5": 6, "6": 7, "7": 8},
+    "yolov26x_vd": {"0": 1, "1": 2, "2": 3, "3": 4, "4": 5, "5": 6, "6": 7, "7": 8}
+  },
+  "uavdt": {
+    "classes": ["car", "truck", "bus"],
+    "_pred8_to_uavdt3": {"3": 0, "4": 0, "5": 1, "6": 2},
+    "yolov8m_vd":  {"0": 1, "1": 2, "2": 3},
+    "yolov8l_vd":  {"0": 1, "1": 2, "2": 3},
+    "yolov8x_vd":  {"0": 1, "1": 2, "2": 3},
+    "yolov9e_vd":  {"0": 1, "1": 2, "2": 3},
+    "yolov10x_vd": {"0": 1, "1": 2, "2": 3},
+    "yolov11x_vd": {"0": 1, "1": 2, "2": 3},
+    "yolov26x_vd": {"0": 1, "1": 2, "2": 3}
+  }
+}

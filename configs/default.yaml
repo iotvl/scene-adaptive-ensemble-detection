@@ -1,0 +1,234 @@
+# ============================================================================
+# Default configuration for Ensemble Object Detection System
+# ============================================================================
+
+project:
+  name: "ensemble-object-detection"
+  root: "."
+  seed: 42
+
+# --- Dataset Configuration ---
+dataset:
+  name: "VisDrone"
+  root: "data/VisDrone"
+  train_images: "data/VisDrone/VisDrone2019-DET-train/images"
+  train_labels: "data/VisDrone/VisDrone2019-DET-train/annotations"
+  val_images: "data/VisDrone/VisDrone2019-DET-val/images"
+  val_labels: "data/VisDrone/VisDrone2019-DET-val/annotations"
+  test_images: "data/VisDrone/VisDrone2019-DET-test-dev/images"
+  test_labels: "data/VisDrone/VisDrone2019-DET-test-dev/annotations"
+  # VisDrone classes (tricycle and awning-tricycle dropped from this project)
+  classes:
+    - "pedestrian"
+    - "people"
+    - "bicycle"
+    - "car"
+    - "van"
+    - "truck"
+    - "bus"
+    - "motor"
+  num_classes: 8
+  img_size: 640
+
+# --- Scene Classification ---
+scenes:
+  classes: ["day", "night", "rain"]
+  # Thresholds for heuristic-based classification
+  brightness_night_threshold: 80
+  brightness_day_threshold: 120
+  saturation_rain_threshold: 50
+  contrast_rain_threshold: 200
+  # CNN classifier config
+  classifier:
+    backbone: "mobilenet_v3_small"
+    pretrained: true
+    input_size: 224
+    batch_size: 32
+    epochs: 30
+    lr: 0.001
+  # Synthetic weather augmentation for rain class balancing.
+  # VisDrone has no weather labels; the heuristic yields only ~5% rain.
+  # Augmentation generates rain/fog from day images to train the CNN.
+  augmentation:
+    enabled: true
+    ratio: 0.3               # fraction of day images to augment
+    effects: ["rain", "fog", "rain_fog"]
+    intensity_range: [0.3, 0.8]
+    seed: 42
+
+# --- Small Models (5 for baseline) ---
+small_models:
+  yolov8n:
+    name: "YOLOv8n"
+    weights: "yolov8n.pt"
+    framework: "ultralytics"
+    params_m: 3.2
+    
+  yolov8s:
+    name: "YOLOv8s"
+    weights: "yolov8s.pt"
+    framework: "ultralytics"
+    params_m: 11.2
+    
+  yolov5n:
+    name: "YOLOv5n"
+    weights: "yolov5nu.pt"
+    framework: "ultralytics"
+    params_m: 2.5
+
+  rtdetr_r18:
+    name: "RT-DETR-R18"
+    weights: "rtdetr-l.pt"
+    framework: "ultralytics"
+    params_m: 20.0
+
+# --- Large Models (3 for comparison) ---
+large_models:
+  yolov8x:
+    name: "YOLOv8x"
+    weights: "yolov8x.pt"
+    framework: "ultralytics"
+    params_m: 68.2
+
+  yolov8l:
+    name: "YOLOv8l"
+    weights: "yolov8l.pt"
+    framework: "ultralytics"
+    params_m: 43.7
+
+  rtdetr_x:
+    name: "RT-DETR-X"
+    weights: "rtdetr-x.pt"
+    framework: "ultralytics"
+    params_m: 65.0
+
+# --- Fine-tuned VisDrone Models (HuggingFace: mshamrai) ---
+finetuned_models:
+  yolov8n_vd:
+    name: "YOLOv8n-VisDrone"
+    weights: "weights/finetuned/yolov8n-visdrone.pt"
+    framework: "ultralytics"
+    params_m: 3.2
+
+  yolov8s_vd:
+    name: "YOLOv8s-VisDrone"
+    weights: "weights/finetuned/yolov8s-visdrone.pt"
+    framework: "ultralytics"
+    params_m: 11.2
+
+  yolov8m_vd:
+    name: "YOLOv8m-VisDrone"
+    weights: "weights/finetuned/yolov8m-visdrone.pt"
+    framework: "ultralytics"
+    params_m: 25.9
+
+  yolov8l_vd:
+    name: "YOLOv8l-VisDrone"
+    weights: "weights/finetuned/yolov8l-visdrone.pt"
+    framework: "ultralytics"
+    params_m: 43.7
+
+  yolov8x_vd:
+    name: "YOLOv8x-VisDrone"
+    weights: "weights/finetuned/yolov8x-visdrone.pt"
+    framework: "ultralytics"
+    params_m: 68.2
+
+  # Heterogeneous pool (HuggingFace: dronefreak VisDrone Model Zoo, Apache-2.0,
+  # trained 300 epochs @ 640 under one toolkit protocol). 11-class layout:
+  # indices 0-9 match the mshamrai 10-class order (OLD10_TO_NEW8 applies as-is),
+  # index 10 = "others" and is dropped by remap_10class_to_8class.
+  yolov9e_vd:
+    name: "YOLOv9e-VisDrone"
+    weights: "weights/finetuned/yolov9e-visdrone.pt"
+    framework: "ultralytics"
+    params_m: 58.2
+
+  yolov10x_vd:
+    name: "YOLOv10x-VisDrone"
+    weights: "weights/finetuned/yolov10x-visdrone.pt"
+    framework: "ultralytics"
+    params_m: 31.7
+
+  yolov11x_vd:
+    name: "YOLOv11x-VisDrone"
+    weights: "weights/finetuned/yolov11x-visdrone.pt"
+    framework: "ultralytics"
+    params_m: 56.9
+
+  yolov26x_vd:
+    name: "YOLOv26x-VisDrone"
+    weights: "weights/finetuned/yolov26x-visdrone.pt"
+    framework: "ultralytics"
+    params_m: 58.8
+
+# --- Ensemble Configuration ---
+# Scene-adaptive per-scene ENSEMBLE (WBF of YOLOv8 l/x/m). Re-derived 2026-06-18
+# by scripts/05b_ensemble_search.py under the corrected eval protocol (conf=0.001,
+# img=1280, 10->8 remap, night=test). The top-3 WBF ensemble beats the previous
+# single-best-model routing in every scene (+0.05-0.06 mAP@50) at ~3x FPS cost
+# (accuracy-priority deployment). Per-model weights are grid-tuned on a subset.
+# For a speed-priority deployment, revert each scene to its single best model
+# (day/night=yolov8l_vd, rain=yolov8x_vd). See
+# experiments/ensembles/ensemble_search_{results.json,report.md}.
+ensemble:
+  methods: ["wbf", "nms", "soft_nms"]
+  default_method: "wbf"
+  iou_threshold: 0.55
+  skip_box_threshold: 0.01
+  sigma: 0.5  # for soft-nms
+
+  day:
+    # top3_wbf: mAP@50=0.5997 (single yolov8l 0.5369, +0.0628), FPS 16.5->5.5
+    models: ["yolov8l_vd", "yolov8x_vd", "yolov8m_vd"]
+    method: "wbf"
+    weights: [1.5, 2.0, 1.0]
+
+  night:
+    # top3_wbf: mAP@50=0.3806 (single yolov8l 0.3261, +0.0545), FPS 19.4->6.0
+    # (542 TEST images — val has only 16)
+    models: ["yolov8l_vd", "yolov8x_vd", "yolov8m_vd"]
+    method: "wbf"
+    weights: [1.5, 1.0, 1.5]
+
+  rain:
+    # top3_wbf: mAP@50=0.6507 (single yolov8x 0.5922, +0.0584), FPS 8.4->4.6
+    models: ["yolov8x_vd", "yolov8m_vd", "yolov8l_vd"]
+    method: "wbf"
+    weights: [2.0, 2.0, 1.5]
+
+# --- Evaluation ---
+evaluation:
+  metrics: ["mAP50", "mAP50-95", "precision", "recall", "f1"]
+  iou_thresholds: [0.5, 0.75]
+  confidence_threshold: 0.25        # deployment/inference threshold
+  eval_confidence_threshold: 0.001  # low conf for honest mAP (full PR curve)
+  eval_img_size: 1280               # tiny VisDrone objects need >640 at eval
+  batch_size: 16
+  num_workers: 4
+
+# --- Resource Profiling ---
+profiling:
+  num_warmup: 10
+  num_iterations: 100
+  input_size: [1, 3, 640, 640]
+  device: "cuda"  # or "cpu"
+  measure:
+    - latency
+    - fps
+    - gpu_memory
+    - cpu_memory
+    - flops
+    - params
+
+# --- Training ---
+training:
+  batch_size: 16
+  epochs: 100
+  optimizer: "AdamW"
+  lr: 0.001
+  weight_decay: 0.0005
+  scheduler: "cosine"
+  warmup_epochs: 3
+  amp: true  # mixed precision
+  device: "0"  # GPU id
