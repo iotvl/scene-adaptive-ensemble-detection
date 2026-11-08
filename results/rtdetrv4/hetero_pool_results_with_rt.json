@@ -1,0 +1,248 @@
+{
+  "incumbents": [
+    "yolov8l_vd",
+    "yolov8x_vd",
+    "yolov8m_vd"
+  ],
+  "newcomers": [
+    "yolov9e_vd",
+    "yolov10x_vd",
+    "yolov11x_vd",
+    "yolov26x_vd",
+    "rtdetrv4l_vd"
+  ],
+  "scenes": {
+    "day": {
+      "num_images": 441,
+      "split": "val",
+      "models": {
+        "yolov8l_vd": {
+          "name": "YOLOv8l-VisDrone",
+          "params_m": 43.7,
+          "mAP50": 0.5369,
+          "mAP50-95": 0.3294,
+          "fps": 16.77
+        },
+        "yolov8x_vd": {
+          "name": "YOLOv8x-VisDrone",
+          "params_m": 68.2,
+          "mAP50": 0.5353,
+          "mAP50-95": 0.3313,
+          "fps": 13.97
+        },
+        "yolov8m_vd": {
+          "name": "YOLOv8m-VisDrone",
+          "params_m": 25.9,
+          "mAP50": 0.5171,
+          "mAP50-95": 0.316,
+          "fps": 29.29
+        },
+        "yolov9e_vd": {
+          "name": "YOLOv9e-VisDrone",
+          "params_m": 58.2,
+          "mAP50": 0.5669,
+          "mAP50-95": 0.3513,
+          "fps": 10.34
+        },
+        "yolov10x_vd": {
+          "name": "YOLOv10x-VisDrone",
+          "params_m": 31.7,
+          "mAP50": 0.5728,
+          "mAP50-95": 0.3477,
+          "fps": 16.17
+        },
+        "yolov11x_vd": {
+          "name": "YOLOv11x-VisDrone",
+          "params_m": 56.9,
+          "mAP50": 0.5606,
+          "mAP50-95": 0.345,
+          "fps": 12.65
+        },
+        "yolov26x_vd": {
+          "name": "YOLOv26x-VisDrone",
+          "params_m": 58.8,
+          "mAP50": 0.5829,
+          "mAP50-95": 0.3572,
+          "fps": 12.96
+        },
+        "rtdetrv4l_vd": {
+          "name": "RT-DETRv4-L-VisDrone",
+          "params_m": 30.9,
+          "mAP50": 0.589,
+          "mAP50-95": 0.369,
+          "fps": 4.8,
+          "protocol_note": "960x960 resize (own protocol); fps = adapter mean on MPS at 960"
+        }
+      }
+    },
+    "night": {
+      "num_images": 542,
+      "split": "test",
+      "models": {
+        "yolov8l_vd": {
+          "name": "YOLOv8l-VisDrone",
+          "params_m": 43.7,
+          "mAP50": 0.3261,
+          "mAP50-95": 0.1865,
+          "fps": 18.77
+        },
+        "yolov8x_vd": {
+          "name": "YOLOv8x-VisDrone",
+          "params_m": 68.2,
+          "mAP50": 0.3226,
+          "mAP50-95": 0.1841,
+          "fps": 14.32
+        },
+        "yolov8m_vd": {
+          "name": "YOLOv8m-VisDrone",
+          "params_m": 25.9,
+          "mAP50": 0.3093,
+          "mAP50-95": 0.1798,
+          "fps": 25.71
+        },
+        "yolov9e_vd": {
+          "name": "YOLOv9e-VisDrone",
+          "params_m": 58.2,
+          "mAP50": 0.358,
+          "mAP50-95": 0.2076,
+          "fps": 10.25
+        },
+        "yolov10x_vd": {
+          "name": "YOLOv10x-VisDrone",
+          "params_m": 31.7,
+          "mAP50": 0.3508,
+          "mAP50-95": 0.2003,
+          "fps": 16.35
+        },
+        "yolov11x_vd": {
+          "name": "YOLOv11x-VisDrone",
+          "params_m": 56.9,
+          "mAP50": 0.346,
+          "mAP50-95": 0.1994,
+          "fps": 12.18
+        },
+        "yolov26x_vd": {
+          "name": "YOLOv26x-VisDrone",
+          "params_m": 58.8,
+          "mAP50": 0.3505,
+          "mAP50-95": 0.1999,
+          "fps": 12.75
+        },
+        "rtdetrv4l_vd": {
+          "name": "RT-DETRv4-L-VisDrone",
+          "params_m": 30.9,
+          "mAP50": 0.4019,
+          "mAP50-95": 0.2232,
+          "fps": 4.41,
+          "protocol_note": "960x960 resize (own protocol); fps = adapter mean on MPS at 960"
+        }
+      }
+    },
+    "rain": {
+      "num_images": 91,
+      "split": "val",
+      "models": {
+        "yolov8l_vd": {
+          "name": "YOLOv8l-VisDrone",
+          "params_m": 43.7,
+          "mAP50": 0.5662,
+          "mAP50-95": 0.3547,
+          "fps": 17.92
+        },
+        "yolov8x_vd": {
+          "name": "YOLOv8x-VisDrone",
+          "params_m": 68.2,
+          "mAP50": 0.5922,
+          "mAP50-95": 0.3726,
+          "fps": 13.9
+        },
+        "yolov8m_vd": {
+          "name": "YOLOv8m-VisDrone",
+          "params_m": 25.9,
+          "mAP50": 0.5708,
+          "mAP50-95": 0.3543,
+          "fps": 27.87
+        },
+        "yolov9e_vd": {
+          "name": "YOLOv9e-VisDrone",
+          "params_m": 58.2,
+          "mAP50": 0.6239,
+          "mAP50-95": 0.3927,
+          "fps": 10.77
+        },
+        "yolov10x_vd": {
+          "name": "YOLOv10x-VisDrone",
+          "params_m": 31.7,
+          "mAP50": 0.6122,
+          "mAP50-95": 0.3742,
+          "fps": 15.77
+        },
+        "yolov11x_vd": {
+          "name": "YOLOv11x-VisDrone",
+          "params_m": 56.9,
+          "mAP50": 0.5931,
+          "mAP50-95": 0.371,
+          "fps": 12.28
+        },
+        "yolov26x_vd": {
+          "name": "YOLOv26x-VisDrone",
+          "params_m": 58.8,
+          "mAP50": 0.6116,
+          "mAP50-95": 0.3822,
+          "fps": 13.07
+        },
+        "rtdetrv4l_vd": {
+          "name": "RT-DETRv4-L-VisDrone",
+          "params_m": 30.9,
+          "mAP50": 0.6285,
+          "mAP50-95": 0.3985,
+          "fps": 4.82,
+          "protocol_note": "960x960 resize (own protocol); fps = adapter mean on MPS at 960"
+        }
+      }
+    }
+  },
+  "prediction_overlap": {
+    "yolov8l_vd|yolov8x_vd": 0.8115,
+    "yolov8l_vd|yolov8m_vd": 0.8031,
+    "yolov8l_vd|yolov9e_vd": 0.797,
+    "yolov8l_vd|yolov10x_vd": 0.8011,
+    "yolov8l_vd|yolov11x_vd": 0.7936,
+    "yolov8l_vd|yolov26x_vd": 0.7933,
+    "yolov8x_vd|yolov8m_vd": 0.8054,
+    "yolov8x_vd|yolov9e_vd": 0.7993,
+    "yolov8x_vd|yolov10x_vd": 0.8027,
+    "yolov8x_vd|yolov11x_vd": 0.7973,
+    "yolov8x_vd|yolov26x_vd": 0.7997,
+    "yolov8m_vd|yolov9e_vd": 0.789,
+    "yolov8m_vd|yolov10x_vd": 0.7931,
+    "yolov8m_vd|yolov11x_vd": 0.7868,
+    "yolov8m_vd|yolov26x_vd": 0.7829,
+    "yolov9e_vd|yolov10x_vd": 0.8066,
+    "yolov9e_vd|yolov11x_vd": 0.811,
+    "yolov9e_vd|yolov26x_vd": 0.805,
+    "yolov10x_vd|yolov11x_vd": 0.8115,
+    "yolov10x_vd|yolov26x_vd": 0.8067,
+    "yolov11x_vd|yolov26x_vd": 0.8124
+  },
+  "overlap_conf": 0.25,
+  "_protocol": {
+    "seed": 42,
+    "eval_confidence_threshold": 0.001,
+    "eval_img_size": 1280,
+    "iou_threshold": 0.55,
+    "skip_box_threshold": 0.01,
+    "device": "mps",
+    "deploy_confidence_threshold": 0.25,
+    "deploy_img_size": 640,
+    "scene_split": {
+      "day": "val",
+      "night": "test",
+      "rain": "val"
+    }
+  },
+  "_derived_from": {
+    "hetero": "experiments/ensembles/hetero_pool_results.json",
+    "rt_results": "experiments/rtdetrv4/rtdetrv4_results.json"
+  }
+}

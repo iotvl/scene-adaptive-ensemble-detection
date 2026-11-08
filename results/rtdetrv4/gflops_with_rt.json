@@ -1,0 +1,554 @@
+{
+  "tier1": "yolov10x_vd",
+  "tier2_members": [
+    "yolov9e_vd",
+    "yolov26x_vd",
+    "yolov10x_vd"
+  ],
+  "gflops": {
+    "yolov10x_vd": 684.4,
+    "yolov9e_vd": 770.9,
+    "yolov26x_vd": 834.6,
+    "yolov8m_vd": 316.4,
+    "yolov8l_vd": 661.8,
+    "yolov8x_vd": 1032.7,
+    "yolov11x_vd": 782.1,
+    "rtdetrv4l_vd": 197.5
+  },
+  "cost_model": {
+    "tier1": 684.4,
+    "tier2_sum": 1605.5,
+    "formula": "avg_gflops_per_frame = tier1 + p * tier2_sum"
+  },
+  "budget_match": {
+    "reference": "yolov8l_vd",
+    "p_star": 0.0
+  },
+  "n_images": {
+    "day": 441,
+    "night": 542,
+    "rain": 91
+  },
+  "tier1_per_scene_mAP50": {
+    "day": 0.581,
+    "night": 0.3669,
+    "rain": 0.6151,
+    "avg_weighted": 0.4758
+  },
+  "tier2_per_scene_mAP50": {
+    "day": 0.6452,
+    "night": 0.4205,
+    "rain": 0.6841,
+    "avg_weighted": 0.5351
+  },
+  "curves": {
+    "oracle": [
+      {
+        "day": 0.581,
+        "night": 0.3669,
+        "rain": 0.6151,
+        "avg_weighted": 0.4758,
+        "p": 0.0
+      },
+      {
+        "day": 0.5947,
+        "night": 0.3771,
+        "rain": 0.634,
+        "avg_weighted": 0.4882,
+        "p": 0.1
+      },
+      {
+        "day": 0.6099,
+        "night": 0.3871,
+        "rain": 0.6464,
+        "avg_weighted": 0.5006,
+        "p": 0.2
+      },
+      {
+        "day": 0.6179,
+        "night": 0.3947,
+        "rain": 0.6544,
+        "avg_weighted": 0.5084,
+        "p": 0.3
+      },
+      {
+        "day": 0.6272,
+        "night": 0.4001,
+        "rain": 0.6563,
+        "avg_weighted": 0.5151,
+        "p": 0.4
+      },
+      {
+        "day": 0.6332,
+        "night": 0.4041,
+        "rain": 0.6609,
+        "avg_weighted": 0.5199,
+        "p": 0.5
+      },
+      {
+        "day": 0.6381,
+        "night": 0.4075,
+        "rain": 0.6687,
+        "avg_weighted": 0.5243,
+        "p": 0.6
+      },
+      {
+        "day": 0.6414,
+        "night": 0.4108,
+        "rain": 0.6732,
+        "avg_weighted": 0.5277,
+        "p": 0.7
+      },
+      {
+        "day": 0.6421,
+        "night": 0.4148,
+        "rain": 0.6753,
+        "avg_weighted": 0.5302,
+        "p": 0.8
+      },
+      {
+        "day": 0.6441,
+        "night": 0.4191,
+        "rain": 0.6786,
+        "avg_weighted": 0.5335,
+        "p": 0.9
+      },
+      {
+        "day": 0.6452,
+        "night": 0.4205,
+        "rain": 0.6841,
+        "avg_weighted": 0.5351,
+        "p": 1.0
+      }
+    ],
+    "C-conf": [
+      {
+        "day": 0.581,
+        "night": 0.3669,
+        "rain": 0.6151,
+        "avg_weighted": 0.4758,
+        "p": 0.0
+      },
+      {
+        "day": 0.5819,
+        "night": 0.3697,
+        "rain": 0.6181,
+        "avg_weighted": 0.4779,
+        "p": 0.1
+      },
+      {
+        "day": 0.5829,
+        "night": 0.3749,
+        "rain": 0.6169,
+        "avg_weighted": 0.4808,
+        "p": 0.2
+      },
+      {
+        "day": 0.584,
+        "night": 0.3789,
+        "rain": 0.6173,
+        "avg_weighted": 0.4833,
+        "p": 0.3
+      },
+      {
+        "day": 0.5883,
+        "night": 0.3852,
+        "rain": 0.6174,
+        "avg_weighted": 0.4883,
+        "p": 0.4
+      },
+      {
+        "day": 0.5911,
+        "night": 0.39,
+        "rain": 0.6184,
+        "avg_weighted": 0.4919,
+        "p": 0.5
+      },
+      {
+        "day": 0.5941,
+        "night": 0.3999,
+        "rain": 0.6185,
+        "avg_weighted": 0.4982,
+        "p": 0.6
+      },
+      {
+        "day": 0.6001,
+        "night": 0.412,
+        "rain": 0.6338,
+        "avg_weighted": 0.508,
+        "p": 0.7
+      },
+      {
+        "day": 0.6107,
+        "night": 0.4162,
+        "rain": 0.6484,
+        "avg_weighted": 0.5157,
+        "p": 0.8
+      },
+      {
+        "day": 0.6273,
+        "night": 0.4168,
+        "rain": 0.6611,
+        "avg_weighted": 0.5239,
+        "p": 0.9
+      },
+      {
+        "day": 0.6452,
+        "night": 0.4205,
+        "rain": 0.6841,
+        "avg_weighted": 0.5351,
+        "p": 1.0
+      }
+    ],
+    "C-count": [
+      {
+        "day": 0.581,
+        "night": 0.3669,
+        "rain": 0.6151,
+        "avg_weighted": 0.4758,
+        "p": 0.0
+      },
+      {
+        "day": 0.6064,
+        "night": 0.3703,
+        "rain": 0.6299,
+        "avg_weighted": 0.4892,
+        "p": 0.1
+      },
+      {
+        "day": 0.6173,
+        "night": 0.3714,
+        "rain": 0.6564,
+        "avg_weighted": 0.4965,
+        "p": 0.2
+      },
+      {
+        "day": 0.6236,
+        "night": 0.3757,
+        "rain": 0.6652,
+        "avg_weighted": 0.502,
+        "p": 0.3
+      },
+      {
+        "day": 0.63,
+        "night": 0.3811,
+        "rain": 0.6733,
+        "avg_weighted": 0.5081,
+        "p": 0.4
+      },
+      {
+        "day": 0.6364,
+        "night": 0.3861,
+        "rain": 0.6786,
+        "avg_weighted": 0.5137,
+        "p": 0.5
+      },
+      {
+        "day": 0.6398,
+        "night": 0.3943,
+        "rain": 0.6791,
+        "avg_weighted": 0.5192,
+        "p": 0.6
+      },
+      {
+        "day": 0.6414,
+        "night": 0.4028,
+        "rain": 0.6798,
+        "avg_weighted": 0.5242,
+        "p": 0.7
+      },
+      {
+        "day": 0.642,
+        "night": 0.4115,
+        "rain": 0.6788,
+        "avg_weighted": 0.5288,
+        "p": 0.8
+      },
+      {
+        "day": 0.6442,
+        "night": 0.4167,
+        "rain": 0.6804,
+        "avg_weighted": 0.5325,
+        "p": 0.9
+      },
+      {
+        "day": 0.6452,
+        "night": 0.4205,
+        "rain": 0.6841,
+        "avg_weighted": 0.5351,
+        "p": 1.0
+      }
+    ],
+    "C-entropy": [
+      {
+        "day": 0.581,
+        "night": 0.3669,
+        "rain": 0.6151,
+        "avg_weighted": 0.4758,
+        "p": 0.0
+      },
+      {
+        "day": 0.5866,
+        "night": 0.3724,
+        "rain": 0.6159,
+        "avg_weighted": 0.481,
+        "p": 0.1
+      },
+      {
+        "day": 0.5961,
+        "night": 0.3782,
+        "rain": 0.6155,
+        "avg_weighted": 0.4878,
+        "p": 0.2
+      },
+      {
+        "day": 0.6064,
+        "night": 0.3842,
+        "rain": 0.6334,
+        "avg_weighted": 0.4966,
+        "p": 0.3
+      },
+      {
+        "day": 0.6145,
+        "night": 0.3896,
+        "rain": 0.6436,
+        "avg_weighted": 0.5035,
+        "p": 0.4
+      },
+      {
+        "day": 0.6215,
+        "night": 0.3961,
+        "rain": 0.656,
+        "avg_weighted": 0.5107,
+        "p": 0.5
+      },
+      {
+        "day": 0.6302,
+        "night": 0.4011,
+        "rain": 0.6627,
+        "avg_weighted": 0.5173,
+        "p": 0.6
+      },
+      {
+        "day": 0.6365,
+        "night": 0.4054,
+        "rain": 0.672,
+        "avg_weighted": 0.5229,
+        "p": 0.7
+      },
+      {
+        "day": 0.6404,
+        "night": 0.4128,
+        "rain": 0.6738,
+        "avg_weighted": 0.5284,
+        "p": 0.8
+      },
+      {
+        "day": 0.6426,
+        "night": 0.4183,
+        "rain": 0.6827,
+        "avg_weighted": 0.5328,
+        "p": 0.9
+      },
+      {
+        "day": 0.6452,
+        "night": 0.4205,
+        "rain": 0.6841,
+        "avg_weighted": 0.5351,
+        "p": 1.0
+      }
+    ],
+    "stochastic": [
+      {
+        "day": 0.581,
+        "night": 0.3669,
+        "rain": 0.6151,
+        "avg_weighted": 0.4758,
+        "p": 0.0
+      },
+      {
+        "day": 0.5853,
+        "night": 0.3703,
+        "rain": 0.6213,
+        "avg_weighted": 0.4798,
+        "p": 0.1
+      },
+      {
+        "day": 0.5904,
+        "night": 0.3745,
+        "rain": 0.6266,
+        "avg_weighted": 0.4845,
+        "p": 0.2
+      },
+      {
+        "day": 0.5964,
+        "night": 0.3786,
+        "rain": 0.6318,
+        "avg_weighted": 0.4895,
+        "p": 0.3
+      },
+      {
+        "day": 0.6027,
+        "night": 0.3828,
+        "rain": 0.6374,
+        "avg_weighted": 0.4947,
+        "p": 0.4
+      },
+      {
+        "day": 0.6088,
+        "night": 0.3877,
+        "rain": 0.6427,
+        "avg_weighted": 0.5001,
+        "p": 0.5
+      },
+      {
+        "day": 0.615,
+        "night": 0.3924,
+        "rain": 0.6463,
+        "avg_weighted": 0.5053,
+        "p": 0.6
+      },
+      {
+        "day": 0.6227,
+        "night": 0.3988,
+        "rain": 0.6537,
+        "avg_weighted": 0.5123,
+        "p": 0.7
+      },
+      {
+        "day": 0.6296,
+        "night": 0.4055,
+        "rain": 0.6651,
+        "avg_weighted": 0.5195,
+        "p": 0.8
+      },
+      {
+        "day": 0.6358,
+        "night": 0.413,
+        "rain": 0.6724,
+        "avg_weighted": 0.5265,
+        "p": 0.9
+      },
+      {
+        "day": 0.6452,
+        "night": 0.4205,
+        "rain": 0.6841,
+        "avg_weighted": 0.5351,
+        "p": 1.0
+      }
+    ]
+  },
+  "singles": {
+    "yolov10x_vd": {
+      "day": 0.581,
+      "night": 0.3669,
+      "rain": 0.6151,
+      "avg_weighted": 0.4758,
+      "gflops": 684.4
+    },
+    "yolov9e_vd": {
+      "day": 0.5748,
+      "night": 0.3664,
+      "rain": 0.6327,
+      "avg_weighted": 0.4745,
+      "gflops": 770.9
+    },
+    "yolov26x_vd": {
+      "day": 0.59,
+      "night": 0.3667,
+      "rain": 0.6153,
+      "avg_weighted": 0.4795,
+      "gflops": 834.6
+    },
+    "yolov8m_vd": {
+      "day": 0.524,
+      "night": 0.3162,
+      "rain": 0.5752,
+      "avg_weighted": 0.4235,
+      "gflops": 316.4
+    },
+    "yolov8l_vd": {
+      "day": 0.544,
+      "night": 0.3342,
+      "rain": 0.5729,
+      "avg_weighted": 0.4406,
+      "gflops": 661.8
+    },
+    "yolov8x_vd": {
+      "day": 0.5434,
+      "night": 0.3309,
+      "rain": 0.5974,
+      "avg_weighted": 0.4407,
+      "gflops": 1032.7
+    },
+    "yolov11x_vd": {
+      "day": 0.5693,
+      "night": 0.3549,
+      "rain": 0.5977,
+      "avg_weighted": 0.4635,
+      "gflops": 782.1
+    }
+  },
+  "singles_basis": "raw cached predictions, no WBF pass (matches curve endpoints)",
+  "pairs": {
+    "yolov9e_vd+yolov26x_vd": {
+      "day": 0.6281,
+      "night": 0.4007,
+      "rain": 0.6664,
+      "avg_weighted": 0.5166,
+      "gflops": 1605.5
+    },
+    "yolov9e_vd+yolov10x_vd": {
+      "day": 0.6233,
+      "night": 0.4002,
+      "rain": 0.669,
+      "avg_weighted": 0.5146,
+      "gflops": 1455.3
+    },
+    "yolov26x_vd+yolov10x_vd": {
+      "day": 0.6229,
+      "night": 0.3938,
+      "rain": 0.6632,
+      "avg_weighted": 0.5107,
+      "gflops": 1519.0
+    }
+  },
+  "oracle_delta_stats": {
+    "mean": 0.0314,
+    "frac_positive": 0.7542,
+    "ap_scale_num_classes": 8,
+    "note": "per-image AP averages over all num_classes; means are NOT comparable across label spaces (VisDrone /8 vs UAVDT /3)"
+  },
+  "_protocol": {
+    "seed": 42,
+    "eval_confidence_threshold": 0.001,
+    "eval_img_size": 1280,
+    "iou_threshold": 0.55,
+    "skip_box_threshold": 0.01,
+    "device": "mps",
+    "scene_split": {
+      "day": "val",
+      "night": "test",
+      "rain": "val"
+    },
+    "deploy_conf_for_signals": 0.25,
+    "p_step": 0.1,
+    "stochastic_draws": 5,
+    "iou_thresholds": [
+      0.5
+    ]
+  },
+  "gflops_protocol_note": {
+    "yolo_members": "Ultralytics meter at eval_img_size 1280 (scripts/12)",
+    "rtdetrv4l_vd": "model-card deploy-mode FLOPs at 960x960 (dronefreak/visdrone-rtdetrv4-l)"
+  },
+  "_derived_from": "experiments/ensembles/scac_feasibility_yolov10x_vd.json",
+  "_protocol_derivation": {
+    "seed": 42,
+    "eval_confidence_threshold": 0.001,
+    "eval_img_size": 1280,
+    "iou_threshold": 0.55,
+    "skip_box_threshold": 0.01,
+    "source": "experiments/ensembles/scac_feasibility_yolov10x_vd.json"
+  }
+}

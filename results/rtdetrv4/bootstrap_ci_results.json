@@ -1,0 +1,407 @@
+{
+  "n_boot": 1000,
+  "seed": 42,
+  "source_rows": "experiments/rtdetrv4/hetero_routing_results.json",
+  "full_sample_mAP50": {
+    "single global-best": {
+      "day": 0.589,
+      "night": 0.4019,
+      "rain": 0.6285
+    },
+    "single routed": {
+      "day": 0.589,
+      "night": 0.4019,
+      "rain": 0.6285
+    },
+    "ensemble agnostic-uniform": {
+      "day": 0.6618,
+      "night": 0.4544,
+      "rain": 0.6952
+    },
+    "ensemble agnostic-tuned": {
+      "day": 0.6602,
+      "night": 0.4537,
+      "rain": 0.6939
+    },
+    "ensemble routed (oracle)": {
+      "day": 0.6528,
+      "night": 0.4528,
+      "rain": 0.6956
+    },
+    "reference: incumbent l/x/m uniform": {
+      "day": 0.6003,
+      "night": 0.3816,
+      "rain": 0.6493
+    }
+  },
+  "num_images": {
+    "day": 441,
+    "night": 542,
+    "rain": 91
+  },
+  "rows": {
+    "single global-best": {
+      "day": {
+        "mean": 0.5896,
+        "std": 0.0086,
+        "ci_lo": 0.5717,
+        "ci_hi": 0.6053
+      },
+      "night": {
+        "mean": 0.4036,
+        "std": 0.0131,
+        "ci_lo": 0.3797,
+        "ci_hi": 0.429
+      },
+      "rain": {
+        "mean": 0.6316,
+        "std": 0.017,
+        "ci_lo": 0.5962,
+        "ci_hi": 0.6637
+      },
+      "avg": {
+        "mean": 0.5416,
+        "std": 0.0077,
+        "ci_lo": 0.5265,
+        "ci_hi": 0.5565
+      },
+      "avg_weighted": {
+        "mean": 0.4993,
+        "std": 0.0075,
+        "ci_lo": 0.4841,
+        "ci_hi": 0.5137
+      }
+    },
+    "single routed": {
+      "day": {
+        "mean": 0.5896,
+        "std": 0.0086,
+        "ci_lo": 0.5717,
+        "ci_hi": 0.6053
+      },
+      "night": {
+        "mean": 0.4036,
+        "std": 0.0131,
+        "ci_lo": 0.3797,
+        "ci_hi": 0.429
+      },
+      "rain": {
+        "mean": 0.6316,
+        "std": 0.017,
+        "ci_lo": 0.5962,
+        "ci_hi": 0.6637
+      },
+      "avg": {
+        "mean": 0.5416,
+        "std": 0.0077,
+        "ci_lo": 0.5265,
+        "ci_hi": 0.5565
+      },
+      "avg_weighted": {
+        "mean": 0.4993,
+        "std": 0.0075,
+        "ci_lo": 0.4841,
+        "ci_hi": 0.5137
+      }
+    },
+    "ensemble agnostic-uniform": {
+      "day": {
+        "mean": 0.6626,
+        "std": 0.0081,
+        "ci_lo": 0.6469,
+        "ci_hi": 0.6777
+      },
+      "night": {
+        "mean": 0.4571,
+        "std": 0.0129,
+        "ci_lo": 0.4337,
+        "ci_hi": 0.4826
+      },
+      "rain": {
+        "mean": 0.6984,
+        "std": 0.0156,
+        "ci_lo": 0.6658,
+        "ci_hi": 0.7281
+      },
+      "avg": {
+        "mean": 0.606,
+        "std": 0.0074,
+        "ci_lo": 0.5918,
+        "ci_hi": 0.6201
+      },
+      "avg_weighted": {
+        "mean": 0.5619,
+        "std": 0.0075,
+        "ci_lo": 0.5475,
+        "ci_hi": 0.5765
+      }
+    },
+    "ensemble agnostic-tuned": {
+      "day": {
+        "mean": 0.6609,
+        "std": 0.0082,
+        "ci_lo": 0.6455,
+        "ci_hi": 0.6761
+      },
+      "night": {
+        "mean": 0.4562,
+        "std": 0.013,
+        "ci_lo": 0.432,
+        "ci_hi": 0.4822
+      },
+      "rain": {
+        "mean": 0.6971,
+        "std": 0.0157,
+        "ci_lo": 0.6651,
+        "ci_hi": 0.7264
+      },
+      "avg": {
+        "mean": 0.6047,
+        "std": 0.0075,
+        "ci_lo": 0.5905,
+        "ci_hi": 0.6191
+      },
+      "avg_weighted": {
+        "mean": 0.5607,
+        "std": 0.0075,
+        "ci_lo": 0.5462,
+        "ci_hi": 0.5751
+      }
+    },
+    "ensemble routed (oracle)": {
+      "day": {
+        "mean": 0.6534,
+        "std": 0.0081,
+        "ci_lo": 0.637,
+        "ci_hi": 0.6683
+      },
+      "night": {
+        "mean": 0.4555,
+        "std": 0.0133,
+        "ci_lo": 0.4311,
+        "ci_hi": 0.4819
+      },
+      "rain": {
+        "mean": 0.6982,
+        "std": 0.0154,
+        "ci_lo": 0.6641,
+        "ci_hi": 0.7266
+      },
+      "avg": {
+        "mean": 0.6024,
+        "std": 0.0073,
+        "ci_lo": 0.5878,
+        "ci_hi": 0.6166
+      },
+      "avg_weighted": {
+        "mean": 0.5573,
+        "std": 0.0075,
+        "ci_lo": 0.5428,
+        "ci_hi": 0.5717
+      }
+    },
+    "reference: incumbent l/x/m uniform": {
+      "day": {
+        "mean": 0.6004,
+        "std": 0.0082,
+        "ci_lo": 0.5846,
+        "ci_hi": 0.6159
+      },
+      "night": {
+        "mean": 0.384,
+        "std": 0.0124,
+        "ci_lo": 0.3609,
+        "ci_hi": 0.4095
+      },
+      "rain": {
+        "mean": 0.6517,
+        "std": 0.0162,
+        "ci_lo": 0.6182,
+        "ci_hi": 0.6824
+      },
+      "avg": {
+        "mean": 0.5453,
+        "std": 0.0075,
+        "ci_lo": 0.5296,
+        "ci_hi": 0.5597
+      },
+      "avg_weighted": {
+        "mean": 0.4955,
+        "std": 0.0074,
+        "ci_lo": 0.4811,
+        "ci_hi": 0.5092
+      }
+    }
+  },
+  "deltas": {
+    "pool_upgrade": {
+      "a": "ensemble agnostic-uniform",
+      "b": "reference: incumbent l/x/m uniform",
+      "day": {
+        "mean": 0.0622,
+        "std": 0.0038,
+        "ci_lo": 0.0549,
+        "ci_hi": 0.0698,
+        "p_le_zero": 0.0
+      },
+      "night": {
+        "mean": 0.0731,
+        "std": 0.0064,
+        "ci_lo": 0.0609,
+        "ci_hi": 0.0856,
+        "p_le_zero": 0.0
+      },
+      "rain": {
+        "mean": 0.0467,
+        "std": 0.0088,
+        "ci_lo": 0.0312,
+        "ci_hi": 0.0644,
+        "p_le_zero": 0.0
+      },
+      "avg": {
+        "mean": 0.0607,
+        "std": 0.0037,
+        "ci_lo": 0.0534,
+        "ci_hi": 0.0678,
+        "p_le_zero": 0.0
+      },
+      "avg_weighted": {
+        "mean": 0.0664,
+        "std": 0.0036,
+        "ci_lo": 0.0597,
+        "ci_hi": 0.0736,
+        "p_le_zero": 0.0
+      }
+    },
+    "routing_vs_agnostic": {
+      "a": "ensemble routed (oracle)",
+      "b": "ensemble agnostic-uniform",
+      "day": {
+        "mean": -0.0092,
+        "std": 0.002,
+        "ci_lo": -0.0131,
+        "ci_hi": -0.0056,
+        "p_le_zero": 1.0
+      },
+      "night": {
+        "mean": -0.0016,
+        "std": 0.0039,
+        "ci_lo": -0.0092,
+        "ci_hi": 0.0065,
+        "p_le_zero": 0.665
+      },
+      "rain": {
+        "mean": -0.0002,
+        "std": 0.0047,
+        "ci_lo": -0.0096,
+        "ci_hi": 0.0086,
+        "p_le_zero": 0.505
+      },
+      "avg": {
+        "mean": -0.0037,
+        "std": 0.0022,
+        "ci_lo": -0.0079,
+        "ci_hi": 0.0007,
+        "p_le_zero": 0.952
+      },
+      "avg_weighted": {
+        "mean": -0.0046,
+        "std": 0.0022,
+        "ci_lo": -0.0091,
+        "ci_hi": -0.0002,
+        "p_le_zero": 0.977
+      }
+    },
+    "routed_single_vs_global_single": {
+      "a": "single routed",
+      "b": "single global-best",
+      "day": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci_lo": 0.0,
+        "ci_hi": 0.0,
+        "p_le_zero": 1.0
+      },
+      "night": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci_lo": 0.0,
+        "ci_hi": 0.0,
+        "p_le_zero": 1.0
+      },
+      "rain": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci_lo": 0.0,
+        "ci_hi": 0.0,
+        "p_le_zero": 1.0
+      },
+      "avg": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci_lo": 0.0,
+        "ci_hi": 0.0,
+        "p_le_zero": 1.0
+      },
+      "avg_weighted": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci_lo": 0.0,
+        "ci_hi": 0.0,
+        "p_le_zero": 1.0
+      }
+    },
+    "ensemble_vs_routed_single": {
+      "a": "ensemble agnostic-uniform",
+      "b": "single routed",
+      "day": {
+        "mean": 0.073,
+        "std": 0.0038,
+        "ci_lo": 0.0659,
+        "ci_hi": 0.0805,
+        "p_le_zero": 0.0
+      },
+      "night": {
+        "mean": 0.0535,
+        "std": 0.0053,
+        "ci_lo": 0.0441,
+        "ci_hi": 0.0646,
+        "p_le_zero": 0.0
+      },
+      "rain": {
+        "mean": 0.0668,
+        "std": 0.0087,
+        "ci_lo": 0.0503,
+        "ci_hi": 0.0837,
+        "p_le_zero": 0.0
+      },
+      "avg": {
+        "mean": 0.0644,
+        "std": 0.0036,
+        "ci_lo": 0.0579,
+        "ci_hi": 0.0717,
+        "p_le_zero": 0.0
+      },
+      "avg_weighted": {
+        "mean": 0.0626,
+        "std": 0.0031,
+        "ci_lo": 0.0571,
+        "ci_hi": 0.069,
+        "p_le_zero": 0.0
+      }
+    }
+  },
+  "_protocol": {
+    "seed": 42,
+    "eval_confidence_threshold": 0.001,
+    "eval_img_size": 1280,
+    "iou_threshold": 0.55,
+    "skip_box_threshold": 0.01,
+    "scene_split": {
+      "day": "val",
+      "night": "test",
+      "rain": "val"
+    },
+    "fusion_method": "wbf"
+  }
+}

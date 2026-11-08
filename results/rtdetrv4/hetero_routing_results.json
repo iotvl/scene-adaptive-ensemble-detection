@@ -1,0 +1,203 @@
+{
+  "pool_source": "experiments/rtdetrv4/hetero_pool_results_with_rt.json",
+  "method": "wbf",
+  "top_k": 3,
+  "global_single": "rtdetrv4l_vd",
+  "global_members": [
+    "rtdetrv4l_vd",
+    "yolov9e_vd",
+    "yolov26x_vd"
+  ],
+  "routed_members": {
+    "day": [
+      "rtdetrv4l_vd",
+      "yolov26x_vd",
+      "yolov10x_vd"
+    ],
+    "night": [
+      "rtdetrv4l_vd",
+      "yolov9e_vd",
+      "yolov10x_vd"
+    ],
+    "rain": [
+      "rtdetrv4l_vd",
+      "yolov9e_vd",
+      "yolov10x_vd"
+    ]
+  },
+  "rows": {
+    "single global-best": {
+      "members": {
+        "day": [
+          "rtdetrv4l_vd"
+        ],
+        "night": [
+          "rtdetrv4l_vd"
+        ],
+        "rain": [
+          "rtdetrv4l_vd"
+        ]
+      },
+      "day": 0.589,
+      "night": 0.4019,
+      "rain": 0.6285,
+      "avg": 0.5398,
+      "avg_mAP50-95": 0.3302
+    },
+    "single routed": {
+      "members": {
+        "day": [
+          "rtdetrv4l_vd"
+        ],
+        "night": [
+          "rtdetrv4l_vd"
+        ],
+        "rain": [
+          "rtdetrv4l_vd"
+        ]
+      },
+      "day": 0.589,
+      "night": 0.4019,
+      "rain": 0.6285,
+      "avg": 0.5398,
+      "avg_mAP50-95": 0.3302
+    },
+    "ensemble agnostic-uniform": {
+      "members": {
+        "day": [
+          "rtdetrv4l_vd",
+          "yolov9e_vd",
+          "yolov26x_vd"
+        ],
+        "night": [
+          "rtdetrv4l_vd",
+          "yolov9e_vd",
+          "yolov26x_vd"
+        ],
+        "rain": [
+          "rtdetrv4l_vd",
+          "yolov9e_vd",
+          "yolov26x_vd"
+        ]
+      },
+      "day": 0.6618,
+      "night": 0.4544,
+      "rain": 0.6952,
+      "avg": 0.6038,
+      "avg_mAP50-95": 0.3708
+    },
+    "ensemble agnostic-tuned": {
+      "members": {
+        "day": [
+          "rtdetrv4l_vd",
+          "yolov9e_vd",
+          "yolov26x_vd"
+        ],
+        "night": [
+          "rtdetrv4l_vd",
+          "yolov9e_vd",
+          "yolov26x_vd"
+        ],
+        "rain": [
+          "rtdetrv4l_vd",
+          "yolov9e_vd",
+          "yolov26x_vd"
+        ]
+      },
+      "weights": [
+        2.0,
+        1.5,
+        1.5
+      ],
+      "day": 0.6602,
+      "night": 0.4537,
+      "rain": 0.6939,
+      "avg": 0.6026,
+      "avg_mAP50-95": 0.3701
+    },
+    "ensemble routed (oracle)": {
+      "members": {
+        "day": [
+          "rtdetrv4l_vd",
+          "yolov26x_vd",
+          "yolov10x_vd"
+        ],
+        "night": [
+          "rtdetrv4l_vd",
+          "yolov9e_vd",
+          "yolov10x_vd"
+        ],
+        "rain": [
+          "rtdetrv4l_vd",
+          "yolov9e_vd",
+          "yolov10x_vd"
+        ]
+      },
+      "weights": {
+        "day": [
+          1.5,
+          1.0,
+          1.5
+        ],
+        "night": [
+          1.5,
+          1.0,
+          1.0
+        ],
+        "rain": [
+          1.0,
+          1.5,
+          1.0
+        ]
+      },
+      "day": 0.6528,
+      "night": 0.4528,
+      "rain": 0.6956,
+      "avg": 0.6004,
+      "avg_mAP50-95": 0.3663
+    },
+    "reference: incumbent l/x/m uniform": {
+      "members": {
+        "day": [
+          "yolov8l_vd",
+          "yolov8x_vd",
+          "yolov8m_vd"
+        ],
+        "night": [
+          "yolov8l_vd",
+          "yolov8x_vd",
+          "yolov8m_vd"
+        ],
+        "rain": [
+          "yolov8l_vd",
+          "yolov8x_vd",
+          "yolov8m_vd"
+        ]
+      },
+      "day": 0.6003,
+      "night": 0.3816,
+      "rain": 0.6493,
+      "avg": 0.5437,
+      "avg_mAP50-95": 0.3324
+    }
+  },
+  "_protocol": {
+    "seed": 42,
+    "eval_confidence_threshold": 0.001,
+    "eval_img_size": 1280,
+    "iou_threshold": 0.55,
+    "skip_box_threshold": 0.01,
+    "scene_split": {
+      "day": "val",
+      "night": "test",
+      "rain": "val"
+    },
+    "weight_grid": [
+      0.5,
+      1.0,
+      1.5,
+      2.0
+    ],
+    "search_images": 80
+  }
+}
