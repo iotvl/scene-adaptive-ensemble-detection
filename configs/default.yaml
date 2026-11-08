@@ -161,6 +161,16 @@ finetuned_models:
     weights: "weights/finetuned/yolov26x-visdrone.pt"
     framework: "ultralytics"
     params_m: 58.8
+  rtdetrv4l_vd:
+    name: "RT-DETRv4-L-VisDrone"
+    weights: "weights/finetuned/rtdetrv4-l-visdrone/model.pth"
+    framework: "rtdetrv4"   # inference via scripts/rtdetrv4_predict.py in third_party/.venv-rtdetrv4
+    params_m: 30.9
+    config: "weights/finetuned/rtdetrv4-l-visdrone/config.yaml"
+    eval_size: 960          # fixed 960x960 resize (the checkpoint's own evaluation protocol)
+    gflops_960: 197.5
+    sha256: "932336a319fc4da5b9f86f1c4ae31b343739f3a1ec0ee83466f019aff955916e"   # verified by scripts/rtdetrv4_predict.py --sha256
+    source: "dronefreak/visdrone-rtdetrv4-l (Hugging Face, 2026-09-21, Apache-2.0)"
 
 # --- Ensemble Configuration ---
 # Scene-adaptive per-scene ENSEMBLE (WBF of YOLOv8 l/x/m). Re-derived 2026-06-18

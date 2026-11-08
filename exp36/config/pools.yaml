@@ -3,6 +3,8 @@
 pools:
   hetero3: [yolov9e_vd, yolov26x_vd, yolov10x_vd]
   full7:   [yolov8m_vd, yolov8l_vd, yolov8x_vd, yolov9e_vd, yolov10x_vd, yolov11x_vd, yolov26x_vd]
+  full8:   [yolov8m_vd, yolov8l_vd, yolov8x_vd, yolov9e_vd, yolov10x_vd, yolov11x_vd, yolov26x_vd, rtdetrv4l_vd]  # + RT-DETRv4-L (cross-paradigm, cache token native960)
+  hetero4: [yolov9e_vd, yolov26x_vd, yolov10x_vd, rtdetrv4l_vd]
 datasets:
   visdrone:
     cache_dir: experiments/ensembles/pred_cache
