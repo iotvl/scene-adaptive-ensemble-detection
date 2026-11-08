@@ -172,6 +172,21 @@ class AppConfig(BaseModel, extra="allow"):
 # ---------------------------------------------------------------------------
 
 
+# Prediction-cache image-size token for models that do NOT run through the shared
+# Ultralytics letterbox at ``evaluation.eval_img_size`` (e.g. RT-DETRv4 at its own fixed
+# 960x960 resize). Filled by ``load_config`` from ``finetuned_models.<key>.framework`` /
+# ``eval_size``; consulted by ``src.ensemble.scene_eval.cache_path`` so every cache-driven
+# experiment resolves such a member's file without per-script special cases.
+NATIVE_CACHE_IMG_TOKENS: dict[str, str] = {}
+
+
+def register_native_cache_tokens(cfg: AppConfig) -> None:
+    for key, m in cfg.finetuned_models.items():
+        if m.framework != "ultralytics":
+            size = getattr(m, "eval_size", None)
+            NATIVE_CACHE_IMG_TOKENS[key] = f"native{size}" if size else "native"
+
+
 def load_config(config_path: str | Path = "configs/default.yaml") -> AppConfig:
     """Load YAML config via OmegaConf and validate through Pydantic.
 
@@ -194,4 +209,6 @@ def load_config(config_path: str | Path = "configs/default.yaml") -> AppConfig:
         OmegaConf.to_container(OmegaConf.load(config_path), resolve=True),
     )
 
-    return AppConfig.model_validate(raw)
+    cfg = AppConfig.model_validate(raw)
+    register_native_cache_tokens(cfg)
+    return cfg

@@ -110,9 +110,12 @@ class TestDetrLabelMapping:
         assert detr_label_mapping(id2label) == VISDRONE_TO_YOLO_CLASS
 
     def test_string_keys_and_name_normalisation(self):
-        id2label = {str(i): n.upper() for i, n in enumerate(
-            ["pedestrian", "people", "bicycle", "car", "van", "truck", "bus", "motor"]
-        )}
+        id2label = {
+            str(i): n.upper()
+            for i, n in enumerate(
+                ["pedestrian", "people", "bicycle", "car", "van", "truck", "bus", "motor"]
+            )
+        }
         id2label["3"] = "Car"
         m = detr_label_mapping(id2label)
         assert m == {i: i for i in range(8)}
@@ -131,3 +134,21 @@ def test_filter_by_conf():
     f = filter_by_conf(p, 0.5)
     assert len(f["boxes"]) == 1
     assert f["labels"].tolist() == [0]
+
+
+class TestNativeCacheToken:
+    def test_registered_model_gets_its_own_img_token(self, monkeypatch):
+        from src import config as cfgmod
+
+        monkeypatch.setitem(cfgmod.NATIVE_CACHE_IMG_TOKENS, "tform_x", "native960")
+        p = cache_path("c", "tform_x", "day", "val", 0.001, 1280)
+        assert p.name == "tform_x_day_val_conf0.001_imgnative960.npz"
+        q = cache_path("c", "yolov8l_vd", "day", "val", 0.001, 1280)
+        assert q.name == "yolov8l_vd_day_val_conf0.001_img1280.npz"
+
+    def test_load_config_registers_non_ultralytics_models(self, tmp_path):
+        from src.config import NATIVE_CACHE_IMG_TOKENS, load_config
+
+        cfg = load_config("configs/default.yaml")
+        for key, m in cfg.finetuned_models.items():
+            assert (key in NATIVE_CACHE_IMG_TOKENS) == (m.framework != "ultralytics")

@@ -15,6 +15,7 @@ import cv2
 import numpy as np
 from ultralytics import YOLO
 
+from src.config import NATIVE_CACHE_IMG_TOKENS
 from src.constants import VISDRONE_TO_YOLO_CLASS
 from src.ensemble.ensemble_detector import EnsembleDetector
 from src.evaluation.metrics import remap_10class_to_8class
@@ -158,11 +159,15 @@ def cache_detr_predictions(hf_id, image_files, conf, device, img_size=None):
     for f in image_files:
         image = Image.open(f).convert("RGB")
         w, h = image.size
-        inputs = {k: v.to(torch_device) for k, v in processor(images=image, return_tensors="pt").items()}
+        inputs = {
+            k: v.to(torch_device) for k, v in processor(images=image, return_tensors="pt").items()
+        }
         with torch.no_grad():
             outputs = model(**inputs)
         target_sizes = torch.tensor([[h, w]], device=torch_device)
-        r = processor.post_process_object_detection(outputs, threshold=conf, target_sizes=target_sizes)[0]
+        r = processor.post_process_object_detection(
+            outputs, threshold=conf, target_sizes=target_sizes
+        )[0]
         b = r["boxes"].cpu().numpy()
         s = r["scores"].cpu().numpy()
         raw = r["labels"].cpu().numpy()
@@ -178,7 +183,9 @@ def cache_detr_predictions(hf_id, image_files, conf, device, img_size=None):
     return preds, img_whs
 
 
-def load_or_cache_detr_predictions(cache_dir, model_key, hf_id, image_files, scene, split, conf, device):
+def load_or_cache_detr_predictions(
+    cache_dir, model_key, hf_id, image_files, scene, split, conf, device
+):
     """Disk-backed cache_detr_predictions (transformers models pick their own input
     size, so the cache filename uses 'native' as the img-size token)."""
     path = cache_path(cache_dir, model_key, scene, split, conf, "native")
@@ -194,8 +201,10 @@ def load_or_cache_detr_predictions(cache_dir, model_key, hf_id, image_files, sce
 def cache_path(cache_dir, model_key, scene, split, conf, img_size):
     """Canonical on-disk location for one model's cached predictions on one
     scene/split. The protocol (conf, img size) is part of the filename so a
-    protocol change can never silently reuse stale predictions."""
-    return Path(cache_dir) / f"{model_key}_{scene}_{split}_conf{conf}_img{img_size}.npz"
+    protocol change can never silently reuse stale predictions. Models registered in
+    ``NATIVE_CACHE_IMG_TOKENS`` (non-Ultralytics, own input size) get their own token."""
+    token = NATIVE_CACHE_IMG_TOKENS.get(model_key, img_size)
+    return Path(cache_dir) / f"{model_key}_{scene}_{split}_conf{conf}_img{token}.npz"
 
 
 def save_predictions(path, preds, img_whs):
@@ -235,6 +244,11 @@ def load_or_cache_predictions(
         if len(preds) == len(image_files):
             return preds, img_whs
         # image set changed under the same protocol -> recompute
+    if model_key in NATIVE_CACHE_IMG_TOKENS:
+        raise FileNotFoundError(
+            f"{path} missing: {model_key} is not an Ultralytics model; produce its cache with "
+            "its own adapter (e.g. scripts/rtdetrv4_predict.py + scripts/17_rtdetrv4_eval.py)"
+        )
     preds, img_whs = cache_model_predictions(weights_path, image_files, conf, img_size, device)
     save_predictions(path, preds, img_whs)
     return preds, img_whs
