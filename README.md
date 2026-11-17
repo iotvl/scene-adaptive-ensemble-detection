@@ -27,7 +27,7 @@ The thesis treats a detector ensemble inside a security video-monitoring pipelin
 | `exp36` | `attacks`, `fusion`, `eval`, `runner`, `report` | attack primitives A1–A3, per-class fusion cache, grid, bootstrap, reports | §3.6 |
 | `configs/default.yaml` | Pydantic schema in `src/config.py` | single source of hyperparameters and protocol settings | §2.6 |
 | `results/uavdt` | five JSON files | reference cascade result on UAVDT, library parity check, timed end-to-end passes at the evaluation and deployment thresholds, recalibration on the mask-free signal | §4.3, §4.5, §4.6 |
-| `results/rtdetrv4` | nine JSON files | RT-DETRv4-L as single model, pool member, routing candidate and cascade tier on VisDrone and UAVDT | §3.4, §3.5, §4.3 |
+| `results/rtdetrv4` | eleven JSON files | RT-DETRv4-L as single model, pool member, routing candidate and cascade tier on VisDrone and UAVDT; size control with RT-DETRv4-S and RT-DETRv4-M | §3.4, §3.5, §4.3 |
 
 ### What is deliberately not included
 
@@ -96,6 +96,8 @@ On UAVDT the C-count signal is read inside the frame's ignore-region mask, which
 
 `results/rtdetrv4/` is the cross-paradigm control run after RT-DETRv4-L weights for VisDrone became public (September 2026). RT-DETRv4-L is the strongest single model and the least correlated with the YOLO members (pairwise overlap 0.68–0.74 against 0.78–0.81 among YOLO models on VisDrone). Added to the three-model pool it raises scene-balanced mAP@50 by +0.027 [+0.023; +0.031] on VisDrone and +0.017 [+0.003; +0.031] on UAVDT (paired and cluster bootstrap, 1000 replicates). Scene routing is still absorbed by fusion of the full pool. In the cascade it narrows the niche as a tier-2 member (compute saving 26 % instead of 55 %) and fails the feasibility gate as tier 1.
 
+`rtdetrv4_results_s.json` and `rtdetrv4_results_m.json` repeat the single-model and pool-member evaluation with the smaller checkpoints of the same family (RT-DETRv4-S, 52.5 GFLOPs; RT-DETRv4-M, 122.4 GFLOPs). The gain from adding the member follows its decorrelation from the YOLO models, not its size: the three-model pool gains +0.021 [+0.017; +0.024] with S, +0.023 [+0.019; +0.026] with M and +0.027 [+0.023; +0.031] with L on VisDrone, and +0.019 [+0.007; +0.033], +0.018 [+0.005; +0.030] and +0.017 [+0.003; +0.031] on UAVDT (bootstrap means, 95 % intervals). The pool with RT-DETRv4-S (0.603 scene-balanced mAP@50, +2.3 % compute) is ahead of all seven YOLO models fused together (0.596).
+
 ## Citation
 
 Thesis: Кромкач В. О. *Оптимізація ансамблевих методів розпізнавання об'єктів на основі нейронних мереж для систем кібербезпеки*: дис. … д-ра філософії: 123 Комп'ютерна інженерія. Львів: Національний університет «Львівська політехніка».
@@ -123,4 +125,4 @@ MIT — see `LICENSE`.
 
 Не включено: нумеровані сценарії етапів експериментів, адаптер інференсу RT-DETRv4 і кеші передбачень (потрібні набори даних і кілька гігабайт кешу; архів надається на запит), набори даних, ваги моделей, текст дисертації.
 
-Встановлення й тести: `uv sync --group dev`, `uv run pytest -m "not slow"`. Еталонний результат каскаду на UAVDT, перевірка паритету бібліотеки, хронометровані наскрізні прогони каскаду і перекалібрування на сигналі без маски зон інтересу — у `results/uavdt`; контрольний експеримент із крос-парадигмальним членом RT-DETRv4-L (одиночна модель, член пулу, кандидат маршрутизації, ярус каскаду) — у `results/rtdetrv4`.
+Встановлення й тести: `uv sync --group dev`, `uv run pytest -m "not slow"`. Еталонний результат каскаду на UAVDT, перевірка паритету бібліотеки, хронометровані наскрізні прогони каскаду і перекалібрування на сигналі без маски зон інтересу — у `results/uavdt`; контрольний експеримент із крос-парадигмальним членом RT-DETRv4-L (одиночна модель, член пулу, кандидат маршрутизації, ярус каскаду) і контроль за розміром цього члена (RT-DETRv4-S і RT-DETRv4-M) — у `results/rtdetrv4`.

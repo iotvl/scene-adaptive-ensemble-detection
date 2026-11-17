@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.0 — 2026-11-17
+
+### Added
+
+- `finetuned_models.rtdetrv4s_vd` and `finetuned_models.rtdetrv4m_vd` (RT-DETRv4-S and RT-DETRv4-M fine-tuned on VisDrone, `dronefreak/visdrone-rtdetrv4-s`, `dronefreak/visdrone-rtdetrv4-m`, Apache-2.0) in `configs/default.yaml`.
+- `results/rtdetrv4/rtdetrv4_results_s.json`, `results/rtdetrv4/rtdetrv4_results_m.json`: size control of the cross-paradigm member — single model and pool member on VisDrone and UAVDT with the same protocol as RT-DETRv4-L.
+
+### Changed
+
+- README: size control of the cross-paradigm member.
+
 ## 1.1.0 — 2026-11-08
 
 ### Added
