@@ -171,6 +171,26 @@ finetuned_models:
     gflops_960: 197.5
     sha256: "932336a319fc4da5b9f86f1c4ae31b343739f3a1ec0ee83466f019aff955916e"   # verified by scripts/rtdetrv4_predict.py --sha256
     source: "dronefreak/visdrone-rtdetrv4-l (Hugging Face, 2026-09-21, Apache-2.0)"
+  rtdetrv4m_vd:
+    name: "RT-DETRv4-M-VisDrone"
+    weights: "weights/finetuned/rtdetrv4-m-visdrone/model.pth"
+    framework: "rtdetrv4"
+    params_m: 19.4
+    config: "weights/finetuned/rtdetrv4-m-visdrone/config.yaml"
+    eval_size: 960
+    gflops_960: 122.4
+    sha256: "87e776e059252dd6c6db67ea801a1769f8f16e30f6c387c2c0bef1f3f627d45e"
+    source: "dronefreak/visdrone-rtdetrv4-m (Hugging Face, Apache-2.0)"   # size-ablation control for rtdetrv4l_vd
+  rtdetrv4s_vd:
+    name: "RT-DETRv4-S-VisDrone"
+    weights: "weights/finetuned/rtdetrv4-s-visdrone/model.pth"
+    framework: "rtdetrv4"
+    params_m: 10.4
+    config: "weights/finetuned/rtdetrv4-s-visdrone/config.yaml"
+    eval_size: 960
+    gflops_960: 52.5
+    sha256: "c58f69a63adcde600e2c4b755f7b72ef0a02ba9a9fa656271c8d32a9426a14c7"
+    source: "dronefreak/visdrone-rtdetrv4-s (Hugging Face, Apache-2.0)"   # size-ablation control for rtdetrv4l_vd
 
 # --- Ensemble Configuration ---
 # Scene-adaptive per-scene ENSEMBLE (WBF of YOLOv8 l/x/m). Re-derived 2026-06-18
