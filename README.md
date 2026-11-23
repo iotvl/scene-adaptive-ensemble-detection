@@ -110,7 +110,7 @@ Articles:
 1. Руда Х. С., Кромкач В. О. Сценозалежне ансамблеве виявлення об'єктів на аерознімках безпілотників: межі корисності маршрутизації кадрів за сценами. *Науковий вісник НЛТУ України*. 2026. Т. 36, № 4. С. 166–177. https://doi.org/10.36930/40360419
 2. Руда Х. С., Кромкач В. О. Адаптивний каскад за складністю сцени для виявлення об'єктів на аерознімках безпілотників: коли вибіркова ескалація обчислень виправдана. *Кібербезпека: освіта, наука, техніка*. 2026. № 2(34). С. 463–502. https://doi.org/10.28925/2663-4023.2026.34.1340
 
-Software: Кромкач В. О. *Scene-adaptive ensemble object detection for UAV imagery with the SCAC compute cascade* (v1.2.0). Zenodo, 2026. https://doi.org/10.5281/zenodo.24306739 (this version; all versions: https://doi.org/10.5281/zenodo.23990447)
+Software: Кромкач В. О. *Scene-adaptive ensemble object detection for UAV imagery with the SCAC compute cascade* (v1.3.0). Zenodo, 2026. https://doi.org/10.5281/zenodo.24473936 (this version; all versions: https://doi.org/10.5281/zenodo.23990447)
 
 Machine-readable metadata is in `CITATION.cff`.
 
