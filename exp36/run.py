@@ -375,6 +375,15 @@ def cmd_mitigation(args, params, pools):
     build_mitigation(Path(args.out), Path(args.ref_root), args.dataset, list(pools["pools"]), log)
 
 
+def cmd_control(args, params, pools):
+    """Cross-paradigm control: hetero4 (trio + RT-DETRv4-L) in --out against hetero3 in --ref-root."""
+    from exp36.report.control import build_control
+
+    build_control(
+        Path(args.out), Path(args.ref_root), Path(args.cap_root), args.dataset, pools, log
+    )
+
+
 def cmd_report(args, params, pools):
     from exp36.report.build import build_report
 
@@ -384,7 +393,8 @@ def cmd_report(args, params, pools):
 def main(argv=None):
     ap = argparse.ArgumentParser(description="exp36 driver")
     ap.add_argument(
-        "cmd", choices=["sanity", "crosscheck", "grid", "bootstrap", "report", "mitigation"]
+        "cmd",
+        choices=["sanity", "crosscheck", "grid", "bootstrap", "report", "mitigation", "control"],
     )
     ap.add_argument("--dataset", default="visdrone", choices=["visdrone", "uavdt"])
     ap.add_argument("--pool", default="hetero3")
@@ -399,6 +409,11 @@ def main(argv=None):
     ap.add_argument(
         "--ref-root", default=str(DEFAULT_OUT), help="mitigation: reference exp36 outputs"
     )
+    ap.add_argument(
+        "--cap-root",
+        default=str(ROOT / "experiments" / "exp36_cap"),
+        help="control: capped-multiplier outputs for the reference pool",
+    )
     args = ap.parse_args(argv)
     params, pools = load_params(), load_pools()
     set_seed(params["seed"])
@@ -410,6 +425,7 @@ def main(argv=None):
         "bootstrap": cmd_bootstrap,
         "report": cmd_report,
         "mitigation": cmd_mitigation,
+        "control": cmd_control,
     }[args.cmd](args, params, pools)
 
 
