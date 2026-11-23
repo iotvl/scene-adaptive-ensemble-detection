@@ -28,6 +28,7 @@ The thesis treats a detector ensemble inside a security video-monitoring pipelin
 | `configs/default.yaml` | Pydantic schema in `src/config.py` | single source of hyperparameters and protocol settings | §2.6 |
 | `results/uavdt` | five JSON files | reference cascade result on UAVDT, library parity check, timed end-to-end passes at the evaluation and deployment thresholds, recalibration on the mask-free signal | §4.3, §4.5, §4.6 |
 | `results/rtdetrv4` | eleven JSON files | RT-DETRv4-L as single model, pool member, routing candidate and cascade tier on VisDrone and UAVDT; size control with RT-DETRv4-S and RT-DETRv4-M | §3.4, §3.5, §4.3 |
+| `results/exp36` | `control_visdrone.json`, `control_uavdt.json` | attack grid on the three-model pool extended with RT-DETRv4-L (N = 4) against the three-model pool: clean cells, per-k attack cells, paired bootstrap differences | §3.6 |
 
 ### What is deliberately not included
 
@@ -97,6 +98,8 @@ On UAVDT the C-count signal is read inside the frame's ignore-region mask, which
 `results/rtdetrv4/` is the cross-paradigm control run after RT-DETRv4-L weights for VisDrone became public (September 2026). RT-DETRv4-L is the strongest single model and the least correlated with the YOLO members (pairwise overlap 0.68–0.74 against 0.78–0.81 among YOLO models on VisDrone). Added to the three-model pool it raises scene-balanced mAP@50 by +0.027 [+0.023; +0.031] on VisDrone and +0.017 [+0.003; +0.031] on UAVDT (paired and cluster bootstrap, 1000 replicates). Scene routing is still absorbed by fusion of the full pool. In the cascade it narrows the niche as a tier-2 member (compute saving 26 % instead of 55 %) and fails the feasibility gate as tier 1.
 
 `rtdetrv4_results_s.json` and `rtdetrv4_results_m.json` repeat the single-model and pool-member evaluation with the smaller checkpoints of the same family (RT-DETRv4-S, 52.5 GFLOPs; RT-DETRv4-M, 122.4 GFLOPs). The gain from adding the member follows its decorrelation from the YOLO models, not its size: the three-model pool gains +0.021 [+0.017; +0.024] with S, +0.023 [+0.019; +0.026] with M and +0.027 [+0.023; +0.031] with L on VisDrone, and +0.019 [+0.007; +0.033], +0.018 [+0.005; +0.030] and +0.017 [+0.003; +0.031] on UAVDT (bootstrap means, 95 % intervals). The pool with RT-DETRv4-S (0.603 scene-balanced mAP@50, +2.3 % compute) is ahead of all seven YOLO models fused together (0.596).
+
+`results/exp36/control_visdrone.json` and `control_uavdt.json` repeat the compromised-member experiment on a pool with a transformer member (three YOLO models and RT-DETRv4-L, N = 4); `uv run python -m exp36.run control` builds them from the attack grids. The two-sided action of the WBF confirmation multiplier is reproduced: when three of the four members suppress the target class, the attack success rate at the operating threshold reaches 0.98 on VisDrone and 0.93 on UAVDT under WBF against 0.19 and 0.02 under NMS, while under injection of 15 phantom boxes per frame by up to three members WBF adds at most 0.08 false positives per frame against 15–45 under NMS. The behaviour therefore belongs to the fusion rule and not to the all-YOLO pool. The grids and bootstrap replicates behind these files are not included.
 
 ## Citation
 

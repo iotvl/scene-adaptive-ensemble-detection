@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.0 — 2026-11-23
+
+### Added
+
+- `exp36.run control` and `exp36/report/control.py`: cross-paradigm control for the compromised-member experiment — the attack grid on pool `hetero4` (three YOLO models and RT-DETRv4-L) set against the same grid on the three-model pool, with paired bootstrap differences of the loss under attack.
+- `results/exp36/control_visdrone.json`, `results/exp36/control_uavdt.json`: results of that control (methods NMS, Soft-NMS, NMW, WBF, WBF without the confirmation multiplier, WBF with capped confirmation).
+
+### Changed
+
+- README: the control on the pool with a transformer member.
+
 ## 1.2.0 — 2026-11-17
 
 ### Added
